@@ -30,10 +30,7 @@ const passwordChecks: IValidate[] = [
     message: 'Password cannot be empty',
   },
   {
-    check: (value, reg) => {
-      console.log(value, value.length, value.length < 8);
-      return value.length < 8;
-    },
+    check: (value, reg) => value.length < 8,
     message: 'Password should be minimum 8 characters',
   },
 ];
