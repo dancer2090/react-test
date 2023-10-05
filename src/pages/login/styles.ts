@@ -253,6 +253,7 @@ export const StyledError = styled.p`
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0.4px;
+  padding-bottom: 12px;
 `;
 
 export const StyledFormControl = styled(FormControl)`

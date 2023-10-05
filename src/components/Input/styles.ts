@@ -4,22 +4,45 @@ import {
   InputAdornment
 } from '@mui/material';
 
+const BORDER_COLOR = {
+  default: '#7B7B7B',
+  error: '#BA1A1A',
+  focused: '#46416D',
+  hover: '#46416D',
+}
+
+const LABEL_COLOR = {
+  default: '#4D4D4D',
+  error: '#BA1A1A',
+  focused: '#46416D',
+  hover: '#46416D',
+}
+
 export const StyledInputAdornment = styled(InputAdornment)`
   svg {
-    fill: #BA1A1A;
+    fill: ${BORDER_COLOR.error};
   }
 `;
 
 export const StyledInput = styled(TextField)`
 
   & .MuiOutlinedInput-notchedOutline {
-    border: 1px solid var(--cybellum-sys-light-primary, #46416D);
+    border: 1px solid ${BORDER_COLOR.default};
     border-radius: 4px;
+    transition: all 0.3s easy-in-out;
+  }
+
+  & .Mui-focused {
+    & .MuiOutlinedInput-notchedOutline {
+      border: 1px solid ${BORDER_COLOR.focused};
+      border-radius: 4px;
+      border-width: 1px;
+    }
   }
 
   & .Mui-error {
     & .MuiOutlinedInput-notchedOutline {
-      border-color: #BA1A1A;
+      border-color: ${BORDER_COLOR.error};
     }
   }
 
@@ -30,10 +53,13 @@ export const StyledInput = styled(TextField)`
     font-weight: 400;
     line-height: 20px;
     letter-spacing: 0.25px;
-    color: #4D4D4D;
+    color: ${LABEL_COLOR.default};
 
     &.Mui-error {
-      color: #BA1A1A;
+      color: ${LABEL_COLOR.error};
+    }
+    &.Mui-focused {
+      color: ${LABEL_COLOR.focused};
     }
   }
 
@@ -48,5 +74,6 @@ export const StyledInput = styled(TextField)`
     height: 48px;
     width: 100%;
     border-radius: 4px;
+
   }
 `;
