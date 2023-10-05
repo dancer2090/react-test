@@ -1,5 +1,5 @@
+import { Box, Button, CardMedia, FormControl, Typography } from '@mui/material';
 import styled from 'styled-components';
-import { CardMedia, Box, Typography, Button, FormControl } from '@mui/material';
 
 export const Logo = styled(CardMedia)`
   width: 150.192px;
@@ -16,7 +16,7 @@ export const LoginBox = styled(Box)`
   position: relative;
   overflow-x: hidden;
   z-index: 1;
-  background: var(--cybellum-sys-light-background, #F9F9FA);
+  background: var(--cybellum-sys-light-background, #f9f9fa);
   max-width: 1920px;
   margin: 0 auto;
 
@@ -71,18 +71,18 @@ export const FormBox = styled.form`
 
 export const Header = styled(Typography)`
   padding-top: 32px;
-  color: #1C1B1F;
+  color: #1c1b1f;
   font-family: Noto Sans;
   font-size: 56px;
   font-style: normal;
   font-weight: 300;
   line-height: 64px;
   letter-spacing: -0.5px;
-  
-  @media(max-width: 1350px) {
+
+  @media (max-width: 1350px) {
     font-size: 42px;
   }
-  @media(max-width: 1200px) {
+  @media (max-width: 1200px) {
     font-size: 36px;
     line-height: 56px;
   }
@@ -94,7 +94,7 @@ export const Header = styled(Typography)`
 
 export const StyledLinkButton = styled(Button)`
   padding: 2px 4px;
-  color: #4D4D4D;
+  color: #4d4d4d;
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -111,7 +111,7 @@ export const StyledLinkButton = styled(Button)`
 export const StyledSubmitButton = styled(Button)`
   position: relative;
   width: 100%;
-  color: #2A2118;
+  color: #2a2118;
   text-align: center;
   font-size: 16px;
   font-style: normal;
@@ -119,19 +119,19 @@ export const StyledSubmitButton = styled(Button)`
   line-height: 24px;
   letter-spacing: 0.15px;
   border-radius: 4px;
-  background: var(--cybellum-ref-secondary-secondary-60, #BAA182);  
+  background: var(--cybellum-ref-secondary-secondary-60, #baa182);
   transition: all 0.3s easy-in-out;
   box-shadow: none;
   height: 40px;
 
   &:after {
-    content: " ";
+    content: ' ';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(132, 110, 84, 0.00);
+    background: rgba(132, 110, 84, 0);
 
     &:hover {
       background: rgba(132, 110, 84, 0.08);
@@ -139,12 +139,10 @@ export const StyledSubmitButton = styled(Button)`
   }
 
   &:hover {
-    background: var(--cybellum-ref-secondary-secondary-60, #BAA182);
-    box-shadow: 0px 1px 3px 1px rgba(28, 27, 31, 0.15), 0px 1px 2px 0px rgba(28, 27, 31, 0.30);
+    background: var(--cybellum-ref-secondary-secondary-60, #baa182);
+    box-shadow: 0px 1px 3px 1px rgba(28, 27, 31, 0.15), 0px 1px 2px 0px rgba(28, 27, 31, 0.3);
   }
-
 `;
-
 
 export const ActionBox = styled.div`
   padding-top: 48px;
@@ -174,7 +172,7 @@ export const StyledBottomLink = styled(Button)`
   align-items: center;
   margin: 0 16px;
 
-  color: var(--cybellum-sys-light-on-surface-variant, #4D4D4D);
+  color: var(--cybellum-sys-light-on-surface-variant, #4d4d4d);
   text-align: center;
   font-size: 16px;
   font-style: normal;
@@ -247,7 +245,7 @@ export const ImageBox = styled.div`
 export const StyledError = styled.p`
   margin: 0;
   padding-top: 4px;
-  color: #BA1A1A;
+  color: #ba1a1a;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

@@ -7,11 +7,7 @@ import rootReducer from './reducers';
 const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([
-      authApi.middleware,
-      notificationApi.middleware,
-    ]),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([authApi.middleware, notificationApi.middleware]),
 });
 
 export default store;

@@ -3,6 +3,6 @@ type Notification = {
   title: string;
   description: string;
   created: string;
-}
+};
 
-export type NotificationResponseType = Notification[]
+export type NotificationResponseType = Notification[];

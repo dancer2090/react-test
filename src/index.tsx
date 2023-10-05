@@ -3,7 +3,7 @@ import '@fontsource/noto-sans/400.css';
 import '@fontsource/noto-sans/500.css';
 import '@fontsource/noto-sans/700.css';
 import '@fontsource/noto-sans/900.css';
-import { CssBaseline, ThemeProvider, StyledEngineProvider } from '@mui/material';
+import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import App from 'app/App';
 import store from 'app/store';
 import React from 'react';

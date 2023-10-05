@@ -1,22 +1,19 @@
+import { InputAdornment, TextField } from '@mui/material';
 import styled from 'styled-components';
-import {
-  TextField,
-  InputAdornment
-} from '@mui/material';
 
 const BORDER_COLOR = {
   default: '#7B7B7B',
   error: '#BA1A1A',
   focused: '#46416D',
   hover: '#46416D',
-}
+};
 
 const LABEL_COLOR = {
   default: '#4D4D4D',
   error: '#BA1A1A',
   focused: '#46416D',
   hover: '#46416D',
-}
+};
 
 export const StyledInputAdornment = styled(InputAdornment)`
   svg {
@@ -25,7 +22,6 @@ export const StyledInputAdornment = styled(InputAdornment)`
 `;
 
 export const StyledInput = styled(TextField)`
-
   & .MuiOutlinedInput-notchedOutline {
     border: 1px solid ${BORDER_COLOR.default};
     border-radius: 4px;
@@ -64,7 +60,7 @@ export const StyledInput = styled(TextField)`
   }
 
   & input {
-    color: var(--cybellum-sys-light-on-surface, #1C1B1F);
+    color: var(--cybellum-sys-light-on-surface, #1c1b1f);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -74,6 +70,5 @@ export const StyledInput = styled(TextField)`
     height: 48px;
     width: 100%;
     border-radius: 4px;
-
   }
 `;
