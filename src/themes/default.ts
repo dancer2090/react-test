@@ -66,16 +66,16 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#556cd6', // Redefine
+      main: '#1C1B1F',
     },
     secondary: {
       main: '#19857b', // Redefine
     },
     error: {
-      main: '#ff0000', // Redefine
+      main: '#BA1A1A',
     },
     background: {
-      default: '#e0e0e0', // Redefine
+      default: '#F9F9FA',
     },
   },
 });

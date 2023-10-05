@@ -12,6 +12,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from 'reportWebVitals';
 import theme from 'themes/default';
+import { ThemeProvider as StyledThemeProvider} from 'styled-components';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -20,8 +22,11 @@ root.render(
       <Provider store={store}>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
+            <StyledThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </StyledThemeProvider>
+            
           </ThemeProvider>
         </StyledEngineProvider>
       </Provider>

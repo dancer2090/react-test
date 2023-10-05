@@ -3,21 +3,19 @@ import styled from 'styled-components';
 
 const BORDER_COLOR = {
   default: '#7B7B7B',
-  error: '#BA1A1A',
   focused: '#46416D',
   hover: '#46416D',
 };
 
 const LABEL_COLOR = {
   default: '#4D4D4D',
-  error: '#BA1A1A',
   focused: '#46416D',
   hover: '#46416D',
 };
 
 export const StyledInputAdornment = styled(InputAdornment)`
   svg {
-    fill: ${BORDER_COLOR.error};
+    fill: ${props => props.theme.palette.error.main};;
   }
 `;
 
@@ -38,7 +36,7 @@ export const StyledInput = styled(TextField)`
 
   & .Mui-error {
     & .MuiOutlinedInput-notchedOutline {
-      border-color: ${BORDER_COLOR.error};
+      border-color: ${props => props.theme.palette.error.main};
     }
   }
 
@@ -52,7 +50,7 @@ export const StyledInput = styled(TextField)`
     color: ${LABEL_COLOR.default};
 
     &.Mui-error {
-      color: ${LABEL_COLOR.error};
+      color: ${props => props.theme.palette.error.main};
     }
     &.Mui-focused {
       color: ${LABEL_COLOR.focused};
@@ -60,7 +58,7 @@ export const StyledInput = styled(TextField)`
   }
 
   & input {
-    color: var(--cybellum-sys-light-on-surface, #1c1b1f);
+    color: #1c1b1f;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
