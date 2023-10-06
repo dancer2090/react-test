@@ -8,9 +8,7 @@ const BORDER_COLOR = {
 };
 
 const LABEL_COLOR = {
-  default: '#4D4D4D',
   focused: '#46416D',
-  hover: '#46416D',
 };
 
 export const StyledInputAdornment = styled(InputAdornment)`
@@ -47,7 +45,7 @@ export const StyledInput = styled(TextField)`
     font-weight: 400;
     line-height: 20px;
     letter-spacing: 0.25px;
-    color: ${LABEL_COLOR.default};
+    color: ${props => props.theme.palette.primary.dark};
 
     &.Mui-focused {
       color: ${LABEL_COLOR.focused};
