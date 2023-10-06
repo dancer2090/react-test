@@ -1,6 +1,7 @@
-import { Alert, Snackbar } from '@mui/material';
+import { Alert } from '@mui/material';
 import { useNotificationsQuery } from 'api/notifications/notifications';
 import { useEffect, useState } from 'react';
+import { StyledSnackbar } from './styles';
 
 const Notification: React.FC = () => {
   const { data } = useNotificationsQuery();
@@ -13,9 +14,9 @@ const Notification: React.FC = () => {
   return (
     <>
       {message && (
-        <Snackbar open anchorOrigin={{ vertical: 'top', horizontal: 'left' }}>
+        <StyledSnackbar open anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
           <Alert severity="success">{message}</Alert>
-        </Snackbar>
+        </StyledSnackbar>
       )}
     </>
   );

@@ -1,13 +1,15 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useForm, SubmitHandler } from "react-hook-form"
 import { CardMedia } from '@mui/material';
 import { useLoginMutation } from 'api/auth/auth';
 import cybellumSign from 'assets/images/login/cybellum-sign.svg';
 import monitor from 'assets/images/login/imac_dig_twins_2x.png';
 import Input from 'components/Input';
-import { validatePassword, validateUsername } from 'helpers/validators';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { setUser } from 'slices/user/userSlice';
+import { Inputs } from './login.interface';
+import { bottomLinks } from './const';
 import {
   ActionBox,
   BottomBox,
@@ -24,53 +26,32 @@ import {
   StyledSubmitButton,
 } from './styles';
 
-const bottomLinks = [
-  {
-    title: 'Privacy policy',
-    link: '/privacy-policy',
-  },
-  {
-    title: 'Terms of use',
-    link: '/terms-of-use',
-  },
-  {
-    title: 'Contact us',
-    link: '/contact-us',
-  },
-];
-
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState<string[]>([]);
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<Inputs>()
 
   const [login, { isError, data }] = useLoginMutation({ fixedCacheKey: 'auth-token' });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // validations
-    const passwordErrors: string[] = validatePassword(password);
-    const usernameErrors: string[] = validateUsername(username);
-
-    const err = [...passwordErrors, ...usernameErrors];
-
-    // set Error
-    if (err.length > 0) {
-      setErrors([...err]);
-      return;
-    } else setErrors([]);
-
-    // do login request
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const { username, password } = data;
     login({ email: username, password });
-  };
+  }
 
   useEffect(() => {
-    if (isError) setErrors([`The email or password you entered don’t match`]);
-  }, [isError]);
+    if (isError) {
+      setError("root", {
+        type: "value",
+        message: "The email or password you entered don't match",
+      })
+    }
+  }, [isError, setError]);
 
   useEffect(() => {
     if (data) {
@@ -79,6 +60,8 @@ export default function Login() {
     }
   }, [data, navigate, dispatch]);
 
+  const displayError = errors?.username || errors?.password || errors?.root;
+
   return (
     <LoginBox>
       <ContentBox>
@@ -86,14 +69,33 @@ export default function Login() {
         <Header variant="h1">
           Welcome to the <br /> Product Security Platform
         </Header>
-        <FormBox method="POST" onSubmit={handleSubmit}>
+        <FormBox method="POST" onSubmit={handleSubmit(onSubmit)}>
           <StyledFormControl>
-            <Input error={errors.length > 0} label="Username" value={username} handleChange={(e) => setUsername(e.currentTarget.value)} />
+            <Input
+              error={!!errors.username}
+              registerParams={{ required: 'Username is required' }}
+              register={register}
+              id="username"
+              name="username" 
+              label="Username"
+            />
           </StyledFormControl>
           <StyledFormControl>
-            <Input error={errors.length > 0} label="Password" value={password} type="password" handleChange={(e) => setPassword(e.currentTarget.value)} />
+            <Input
+              error={!!errors.password}
+              registerParams={{ required: 'Password is required', minLength: { value: 8, message: 'Password should be minimum 8 characters' } }}
+              register={register}
+              id="password"
+              name="password"
+              label="Password"
+              type="password"
+            />
           </StyledFormControl>
-          {errors.length > 0 && <StyledError>{errors[0]}</StyledError>}
+          {displayError && (
+            <StyledError>
+              {displayError?.message}
+            </StyledError>
+          )}
           <StyledLinkButton onClick={() => navigate('/forgot-password')}>Forgot your password?</StyledLinkButton>
           <ActionBox>
             <StyledSubmitButton variant="contained" type="submit">

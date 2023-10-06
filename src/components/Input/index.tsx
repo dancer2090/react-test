@@ -7,22 +7,32 @@ enum FieldTypes {
 }
 
 interface IInput {
-  error: boolean;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  id: string;
+  error?: boolean;
   label?: string;
-  value?: string;
   defaultValue?: string;
   type?: keyof typeof FieldTypes;
+  register?: any;
+  registerParams: object;
+  name: string;  
 }
 
-const Input: React.FC<IInput> = ({ error = false, handleChange = () => {}, label, value, defaultValue, type = 'text' }) => (
+const Input: React.FC<IInput> = ({
+  id,
+  error = false,
+  label,
+  type = 'text',
+  register,
+  registerParams = {},
+  name,
+}) => (
   <StyledInput
+    {...register(name, { ...registerParams })}
+    id={id}
+    name={name}
     error={error}
     label={label || null}
-    value={value || null}
-    defaultValue={defaultValue || null}
     type={type}
-    onChange={handleChange}
     InputProps={{
       endAdornment: <StyledInputAdornment position="end">{error && <ErrorOutlineIcon />}</StyledInputAdornment>,
     }}

@@ -49,11 +49,12 @@ export const StyledInput = styled(TextField)`
     letter-spacing: 0.25px;
     color: ${LABEL_COLOR.default};
 
-    &.Mui-error {
-      color: ${props => props.theme.palette.error.main};
-    }
     &.Mui-focused {
       color: ${LABEL_COLOR.focused};
+    }
+
+    &.Mui-error {
+      color: ${props => props.theme.palette.error.main};
     }
   }
 
