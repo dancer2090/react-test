@@ -72,7 +72,7 @@ export default function Login() {
         <FormBox method="POST" onSubmit={handleSubmit(onSubmit)}>
           <StyledFormControl>
             <Input
-              error={!!errors.username}
+              error={!!errors.username || !!errors.root}
               registerParams={{
                 required: 'Username is required',
                 validate: {
@@ -89,7 +89,7 @@ export default function Login() {
           </StyledFormControl>
           <StyledFormControl>
             <Input
-              error={!!errors.password}
+              error={!!errors.password || !!errors.root}
               registerParams={{ required: 'Password is required', minLength: { value: 8, message: 'Password should be minimum 8 characters' } }}
               register={register}
               id="password"
