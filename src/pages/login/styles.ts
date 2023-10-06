@@ -16,7 +16,7 @@ export const LoginBox = styled(Box)`
   position: relative;
   overflow-x: hidden;
   z-index: 1;
-  background: var(--cybellum-sys-light-background, #f9f9fa);
+  background: ${props => props.theme.palette.background.default};
   max-width: 1920px;
   margin: 0 auto;
 
@@ -71,8 +71,7 @@ export const FormBox = styled.form`
 
 export const Header = styled(Typography)`
   padding-top: 32px;
-  color: #1c1b1f;
-  font-family: Noto Sans;
+  color: ${props => props.theme.palette.primary.main};
   font-size: 56px;
   font-style: normal;
   font-weight: 300;
@@ -94,7 +93,7 @@ export const Header = styled(Typography)`
 
 export const StyledLinkButton = styled(Button)`
   padding: 2px 4px;
-  color: #4d4d4d;
+  color: ${props => props.theme.palette.primary.dark};;
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -104,7 +103,7 @@ export const StyledLinkButton = styled(Button)`
   background: transparent;
   &:hover {
     border-radius: 4px;
-    background: var(--cybellum-state-layers-light-on-surface-variant-opacity-008, rgba(77, 77, 77, 0.08));
+    background: rgba(77, 77, 77, 0.08);
   }
 `;
 
@@ -119,7 +118,7 @@ export const StyledSubmitButton = styled(Button)`
   line-height: 24px;
   letter-spacing: 0.15px;
   border-radius: 4px;
-  background: var(--cybellum-ref-secondary-secondary-60, #baa182);
+  background: #baa182;
   transition: all 0.3s easy-in-out;
   box-shadow: none;
   height: 40px;
@@ -139,7 +138,7 @@ export const StyledSubmitButton = styled(Button)`
   }
 
   &:hover {
-    background: var(--cybellum-ref-secondary-secondary-60, #baa182);
+    background: #baa182;
     box-shadow: 0px 1px 3px 1px rgba(28, 27, 31, 0.15), 0px 1px 2px 0px rgba(28, 27, 31, 0.3);
   }
 `;
@@ -172,7 +171,7 @@ export const StyledBottomLink = styled(Button)`
   align-items: center;
   margin: 0 16px;
 
-  color: var(--cybellum-sys-light-on-surface-variant, #4d4d4d);
+  color: ${props => props.theme.palette.primary.dark};
   text-align: center;
   font-size: 16px;
   font-style: normal;
@@ -182,7 +181,7 @@ export const StyledBottomLink = styled(Button)`
 
   &:hover {
     border-radius: 4px;
-    background: var(--cybellum-state-layers-light-on-surface-variant-opacity-008, rgba(77, 77, 77, 0.08));
+    background: rgba(77, 77, 77, 0.08);
   }
 
   @media (max-width: 992px) {
@@ -245,7 +244,7 @@ export const ImageBox = styled.div`
 export const StyledError = styled.p`
   margin: 0;
   padding-top: 4px;
-  color: #ba1a1a;
+  color: ${props => props.theme.palette.error.main};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
