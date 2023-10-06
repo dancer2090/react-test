@@ -243,14 +243,14 @@ export const ImageBox = styled.div`
 
 export const StyledError = styled.p`
   margin: 0;
-  padding-top: 4px;
+  padding-top: 6px;
   color: ${props => props.theme.palette.error.main};
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0.4px;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
 `;
 
 export const StyledFormControl = styled(FormControl)`

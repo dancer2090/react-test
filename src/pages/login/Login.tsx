@@ -9,7 +9,7 @@ import monitor from 'assets/images/login/imac_dig_twins_2x.png';
 import Input from 'components/Input';
 import { setUser } from 'slices/user/userSlice';
 import { Inputs } from './login.interface';
-import { bottomLinks } from './const';
+import { bottomLinks, emailPattern } from './const';
 import {
   ActionBox,
   BottomBox,
@@ -73,7 +73,14 @@ export default function Login() {
           <StyledFormControl>
             <Input
               error={!!errors.username}
-              registerParams={{ required: 'Username is required' }}
+              registerParams={{
+                required: 'Username is required',
+                validate: {
+                  matchPattern: (v: string) =>
+                    emailPattern.test(v) ||
+                    "Username must be a valid email address",
+                }
+              , }}
               register={register}
               id="username"
               name="username" 
