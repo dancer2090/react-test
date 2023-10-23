@@ -1,12 +1,24 @@
-import Box from '@mui/material/Box';
+import { RootState } from 'app/store';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Navigate, Outlet } from 'react-router-dom';
+import Notification from './Notification';
+import { Container } from './styles';
 
 export default function DashboardLayout({ children }: { children?: React.ReactNode }) {
+  const { accessToken } = useSelector((state: RootState) => state.user);
+
   return (
-    <Box sx={{ display: 'flex', height: '100vh', alignItems: 'center' }}>
-      {children}
-      <Outlet />
-    </Box>
+    <Container>
+      {accessToken ? (
+        <>
+          {children}
+          <Notification />
+          <Outlet />
+        </>
+      ) : (
+        <Navigate to="/login" />
+      )}
+    </Container>
   );
 }
